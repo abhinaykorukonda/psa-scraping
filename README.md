@@ -22,6 +22,7 @@ Now that we figured out how to get the entire data related to population, transa
 
 
 
+
 ### Choice of Technology
 The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any servers and have a serverless stack that can be extremely scalable. The cost of using these tables is also extremely cheap. 
 
@@ -31,10 +32,10 @@ The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any ser
 
 
 
-### Data Model Diagram
-
+### Pipeline Diagram
 
 ![alt text](pipeline.jpeg)
+
 
 
 ### Get Population Details
@@ -78,3 +79,33 @@ If it successfully completes the batch within 5 seconds, it will delete the mess
 At any point, if any of the records of the batch fails, the lambda will be stopped and the unused and failed hyperlinks will be put back in the queue. The lambda will be triggered after 5 seconds using the cronjob as usual which will be under anti-scraping tools consideration. 
 
 Also, the HTML pages need to be stored in S3 and their locations should be mentioned in the table in case the data needs to be reused 
+
+
+## Data Model
+
+
+### Data Model Diagram
+
+
+![alt text](data_model.jpeg)
+
+
+### Populations table
+
+The population table will contain each record unique to the player, collection, year, special description (regarding ink), card number, grade, qualifier flag (to indicate whether the record is a qualifier or a non-qualifier), and authentication flag (whether the grade is authentic, if the grade is authentic, then the grade will be null with the flag being True). For each of these records, there will be a count of cards present in the universe.
+
+Each id can be generated from the concatenation of any derived logic from all the respective columns that define the uniqueness. Also, for every collection, we can create a `population_id` to indicate which population the record belongs to.
+
+
+### Transactions table
+
+The transactions will contain a unique transaction that happened. A `transaction_id` can be created based on the `lot_number`. The `date` can be a useful sort-key to be useful to get all the transactions related to a past date or easily sort the transactions by date for a given player. The transactions can also have a population_id to link it back to the population table, it can also link back to the `population` table using the `player` as a link
+
+
+### Certifications table
+
+
+This table will contain each certificate as a row. The `certification_number` can be used to get all the transactions related to it. 
+
+
+If the keys don’t satisfy, then one can always use a combination of player, year, collection to create an index that will belong to all tables
