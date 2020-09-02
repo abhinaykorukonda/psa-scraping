@@ -109,3 +109,8 @@ This table will contain each certificate as a row. The `certification_number` ca
 
 
 If the keys don’t satisfy, then one can always use a combination of player, year, collection to create an index that will belong to all tables
+
+
+## Data Warehouse
+
+There are several ways to let the Data Scientists or the end users to use that data for analysis without touching the pipeline. One could use FiveTran connectors or any other AWS solutions to transfer the data into S3, Redshift, Snowflake etc.  
