@@ -63,7 +63,7 @@ Also, the HTML pages need to be stored in S3 and their locations should be menti
 
 The `transaction_hyperlinks` queue triggers the `scrape_transactions` lambda to take the transaction details in batches or one by one depending on the preference. 
 
-The `scrape_transactions` lambda will use `requests` library to get all the transaction details of each player belonging to the card set and year and store each transaction along with the linked population details in the `transactions` table.
+The `scrape_transactions` lambda will use `requests` library to get all the transaction details of each player belonging to the card set and year and store each transaction along with the linked population details in the `transactions` table. Additionally, you can read from the transactions table if a transaction already exists and write only to the table if it doesn't exist. 
 
 Each player transaction table also contains a certification number, the lambda will check if these certifications already exist in the `certifications` table, otherwise, it will send them to `certifications_hyperlinks` queue. 
 
