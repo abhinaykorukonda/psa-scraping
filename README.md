@@ -10,7 +10,7 @@ The first page that needs to be scraped is [this](https://www.psacard.com/pop/ba
 
 Going into each year, one will find hyperlinks for all the card sets belonging to the year. For example, this [link] (https://www.psacard.com/pop/basketball-cards/1948/20525) shows the card sets for the year 1948
 
-Now, each of that link (example [link](https://www.psacard.com/pop/basketball-cards/1948/bowman/34069) that belongs to the Bowman collection of the year 1948) actually shows the **population** report that’s of our interest. This page needs to be scraped for the **population**. We can traverse through the years and sets to get **ALL** the **population** data that’s related to basketball cards. An 
+Now, each of that link (example [link](https://www.psacard.com/pop/basketball-cards/1948/bowman/34069) that belongs to the Bowman collection of the year 1948) actually shows the **population** report that’s of our interest. This page needs to be scraped for the **population**. We can traverse through the years and sets to get **ALL** the **population** data that’s related to basketball cards.
 
 Each **population** report has a link to all **transactions** hyperlinked on the **APR** box. Using the APR link will give us the hyperlinks related to all transactions related to every player in that set. For example, to find out all the **transactions** to Ernie Calverley card of Bowman 1948, one can find the link on this [page](https://www.psacard.com/auctionprices/basketball-cards/1948-bowman/34069) which leads us to all transactions of that card in Bowman 1948 in this [link](https://www.psacard.com/auctionprices/basketball-cards/1948-bowman/ernie-calverley/values/299138/). **ALL** the **transactions** can now be collected from this page. 
 
