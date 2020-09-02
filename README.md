@@ -8,7 +8,7 @@
 
 The first page that needs to be scraped is [this](https://www.psacard.com/pop/basketball-cards/20019). This [link](https://www.psacard.com/pop/basketball-cards/20019) has all the hyperlinks for all the years of Basketball cards.
 
-Going into each year, one will find hyperlinks for all the card sets belonging to the year. For example, this [link] (https://www.psacard.com/pop/basketball-cards/1948/20525) shows the card sets for the year 1948
+Going into each year, one will find hyperlinks for all the card sets belonging to the year. For example, this [link](https://www.psacard.com/pop/basketball-cards/1948/20525) shows the card sets for the year 1948
 
 Now, each of that link (example [link](https://www.psacard.com/pop/basketball-cards/1948/bowman/34069) that belongs to the Bowman collection of the year 1948) actually shows the **population** report that’s of our interest. This page needs to be scraped for the **population**. We can traverse through the years and sets to get **ALL** the **population** data that’s related to basketball cards.
 
