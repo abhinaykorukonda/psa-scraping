@@ -28,7 +28,7 @@ The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any ser
 
 **DynamoDB** can support the NoSQL data structure and can help to scale the data model horizontally in case of any changes to the data model. **DynamoDB streams** will also help us identify the changes in the records if certain services need to listen to it. 
 
-
+**SQS** allows us to control the batch going to each of the lambdas. Also, if any of the scraper lambdas fails, it will simply be put back in the queue and handle the same item with exponential tryout. It also has a built in dead letter queue to understand the failed items even after exponential tryout to be aware of the failed items 
 
 
 
@@ -47,7 +47,7 @@ Also, the HTML pages need to be stored in S3 and their locations should be menti
 ### Scrape Population
 `population_hyperlinks` queue will act as a load balancer for the `scrape_population` lambda which can either take batches of the hyperlinks or one at a time to download the population page. 
 
-The population page cannot be downloaded using the `requests` page simply. The population table is actually a dynamically loaded table by javascript. Therefore one needs to use browser to load the page and then read the table. 
+The population page cannot be downloaded using the `requests` library simply. The population table is actually a dynamically loaded table by javascript. Therefore one needs to use browser to load the page and then read the table. 
 
 For this, we can use headless chrome with `selenium` library to download the population table. The `scrape_population` will load the page and transform the html table to dynamodb records and store it in the `population` table
 
