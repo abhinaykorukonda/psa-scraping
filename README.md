@@ -40,14 +40,15 @@ The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any ser
 
 ### Get Population Details
 
-The `get_pop_details` lambda will be triggered every week/month based on the refresh of the data needed. Once it gets triggered, we will use `requests` python library to get the data of all basketball population page links. These page links will be posted into the `population_hyperlinks ` queue to be processed by `scrape_population`
+The `get_pop_details` lambda will be triggered every week/month based on the refresh of the data needed. Once it gets triggered, we will use `
+` python library to get the data of all basketball population page links. These page links will be posted into the `population_hyperlinks ` queue to be processed by `scrape_population`
 Also, the HTML pages need to be stored in S3 and their locations should be mentioned in the table in case the data needs to be reused 
 
 
 ### Scrape Population
 `population_hyperlinks` queue will act as a load balancer for the `scrape_population` lambda which can either take batches of the hyperlinks or one at a time to download the population page. 
 
-The population page cannot be downloaded using the `requests` page simply. The population table is actually a dynamically loaded table by javascript. Therefore one needs to use browser to load the page and then read the table. 
+The population page cannot be downloaded using the `requests` library simply. The population table is actually a dynamically loaded table by javascript. Therefore one needs to use browser to load the page and then read the table. 
 
 For this, we can use headless chrome with `selenium` library to download the population table. The `scrape_population` will load the page and transform the html table to dynamodb records and store it in the `population` table
 
