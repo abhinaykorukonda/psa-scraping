@@ -28,7 +28,7 @@ The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any ser
 
 **DynamoDB** can support the NoSQL data structure and can help to scale the data model horizontally in case of any changes to the data model. **DynamoDB streams** will also help us identify the changes in the records if certain services need to listen to it. 
 
-
+**SQS** allows us to control the batch going to each of the lambdas. Also, if any of the scraper lambdas fails, it will simply be put back in the queue and handle the same item with exponential tryout. It also has a built in dead letter queue to understand the failed items even after exponential tryout to be aware of the failed items 
 
 
 
