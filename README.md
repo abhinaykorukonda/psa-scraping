@@ -34,7 +34,7 @@ The reason for choosing **Lambda** and **DyanmoDB** is to avoid creating any ser
 
 ### Pipeline Diagram
 
-![alt text](pipeline.jpeg)
+![alt text](updated_pipeline.jpeg)
 
 
 
