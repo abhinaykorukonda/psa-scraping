@@ -1,4 +1,4 @@
-# PSA-Scraping
+# PSA-Scraping (Serverless approach)
 
 
 
